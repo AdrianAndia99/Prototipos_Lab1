@@ -880,7 +880,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foodAndWalls: {fileID: 1653419508}
   bodyPartPrefab: {fileID: 6754701134521696769, guid: b466f15aa78fda94d8d2b1194b7a2ef6, type: 3}
-  invulnerabilityTime: 1.5
 --- !u!114 &1725039996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1423,7 +1422,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

@@ -7,7 +7,6 @@ TagManager:
   - Enemy
   - Wall
   - Food
-  - Body
   layers:
   - Default
   - TransparentFX

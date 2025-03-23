@@ -15,19 +15,12 @@ public class PlayerController1 : MonoBehaviour
     [SerializeField] private FoodAndWalls foodAndWalls;
 
     [SerializeField] private GameObject bodyPartPrefab;
-    [SerializeField] private float invulnerabilityTime = 1.5f;
-
     private List<Transform> bodyParts = new List<Transform>();
     private List<Vector3> previousPositions = new List<Vector3>();
-    private bool isInvulnerable = false;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-    }
-    private void Start()
-    {
-        StartCoroutine(InvulnerabilityDelay());
     }
 
     private void FixedUpdate()
@@ -68,27 +61,22 @@ public class PlayerController1 : MonoBehaviour
             }
         }
     }
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (isInvulnerable && (other.CompareTag("Enemy") || other.CompareTag("Wall") || other.CompareTag("Body")))
-        {
-            return;
-        }
-        DiferentCollisions(other);
-    }
 
-
-    public void DiferentCollisions(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.CompareTag("Food"))
+
+        if (collision.gameObject.tag == "Food")
         {
             Destroy(collision.gameObject);
             OnFood?.Invoke();
             foodAndWalls.GenerateFood();
-            StartCoroutine(InvulnerabilityDelay());
             Grow();
         }
-        else if (collision.CompareTag("Enemy") || collision.CompareTag("Wall") || collision.CompareTag("Body"))
+        if (collision.gameObject.tag == "Enemy")
+        {
+            OnEnemy?.Invoke();
+        }
+        if (collision.gameObject.tag == "Wall")
         {
             OnEnemy?.Invoke();
         }
@@ -97,13 +85,6 @@ public class PlayerController1 : MonoBehaviour
     private void Grow()
     {
         GameObject newBody = Instantiate(bodyPartPrefab, transform.position, transform.rotation);
-        newBody.tag = "Body";
         bodyParts.Add(newBody.transform);
-    }
-
-    private IEnumerator InvulnerabilityDelay()
-    {
-        yield return new WaitForSeconds(invulnerabilityTime);
-        isInvulnerable = true;
     }
 }

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c80ca93a06bd8f342b50403b68e966c4, type: 3}
   m_Name: ScoreData
   m_EditorClassIdentifier: 
-  currentScore: 0
-  highScore: 0
+  currentScore: 2
+  highScore: 10
