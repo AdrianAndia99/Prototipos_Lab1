@@ -1,26 +1,13 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager1 : MonoBehaviour
+public class GameManager1 : SingletonNoPersistent<GameManager1>
 {
-    public static GameManager1 Instance { get; private set; }
-
     public ScoreDataSO scoreData;
     public UiManager1 uiManager;
 
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-            return;
-        }
-
         scoreData.highScore = PlayerPrefs.GetInt("HighScore", 0);
     }
 

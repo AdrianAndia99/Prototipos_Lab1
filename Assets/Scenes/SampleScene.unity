@@ -878,8 +878,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 176fb29555284a64fb4cca6e4a49dd78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  foodAndWalls: {fileID: 1653419508}
-  bodyPartPrefab: {fileID: 6754701134521696769, guid: b466f15aa78fda94d8d2b1194b7a2ef6, type: 3}
+  Foodandwalls: {fileID: 1653419508}
+  BodyPartPrefab: {fileID: 6754701134521696769, guid: b466f15aa78fda94d8d2b1194b7a2ef6, type: 3}
 --- !u!114 &1725039996
 MonoBehaviour:
   m_ObjectHideFlags: 0

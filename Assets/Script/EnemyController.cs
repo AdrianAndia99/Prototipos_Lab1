@@ -12,9 +12,9 @@ public class EnemyController : MonoBehaviour
     {
         sr = GetComponent<SpriteRenderer>();
 
-        if (enemyData.arraySprites.Length > 0)
+        if (enemyData.ArraySprites.Length > 0)
         {
-            sr.sprite = enemyData.arraySprites[Random.Range(0, enemyData.arraySprites.Length)];
+            sr.sprite = enemyData.ArraySprites[Random.Range(0, enemyData.ArraySprites.Length)];
         }
     }
 
@@ -34,11 +34,11 @@ public class EnemyController : MonoBehaviour
 
     private void ChangeSpriteRandomly()
     {
-        if (enemyData.arraySprites.Length == 0) 
+        if (enemyData.ArraySprites.Length == 0) 
         {
             return;
         }
 
-        sr.sprite = enemyData.arraySprites[Random.Range(0, enemyData.arraySprites.Length)];
+        sr.sprite = enemyData.ArraySprites[Random.Range(0, enemyData.ArraySprites.Length)];
     }
 }
