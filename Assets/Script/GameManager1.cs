@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+[RequireComponent(typeof(UiManager1))]
 public class GameManager1 : SingletonNoPersistent<GameManager1>
 {
     public ScoreDataSO scoreData;
@@ -40,7 +40,7 @@ public class GameManager1 : SingletonNoPersistent<GameManager1>
 
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        uiManager = FindObjectOfType<UiManager1>();
+        //uiManager = FindObjectOfType<UiManager1>();
 
         if (uiManager != null)
         {
